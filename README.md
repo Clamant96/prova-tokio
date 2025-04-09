@@ -1,5 +1,11 @@
 # PROVA TESTE
 
+## BACK E FRONT
+Back e front estao integrados, para realizar o teste, basta rodas a aplicacao Java e acessar a seguinte URL, que vc tera acesso ao front
+```bash
+http://localhost:8080/
+```
+
 ## Criar uma API rest utilizando JPA
 
 OBS: a conexão do banco já esta configurada via H2.
