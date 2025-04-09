@@ -3,6 +3,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    /*RESOLVER PROBLEMA DAS MODEL SEM CONSTRUTOR, POIS NAO SOLICITAMOS INICIALIZACAO DOS ATRIBUTOS*/
+    "strictPropertyInitialization": false,
     "sourceMap": true,
     "declaration": false,
     "module": "es2015",

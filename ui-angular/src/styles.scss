@@ -1,1 +1,315 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* IMPORTANDO FONTS PARA SEU PROJETO, APARTIR DO GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+/* FONT PADRAO -> Sofia Sans */
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+/* DEIXANDO A MARGIN E PADDING DE SEU WINDOW ZERADO */
+* {
+  padding: 0;
+  margin: 0;
+
+}
+
+/* CRIANDO MACROS/VARIAVEIS PARA REUTILIZACAO DE CORES */
+:root {
+  --text-default: #262626;
+  --text-title: #303030;
+  --text-input: #6e6e6e;
+  --text-author: #00000080;
+  --text-white: #f1f1f1;
+  --text-white-light: #ffffff;
+  --text-link: #191919;
+  --text-red: rgb(175, 59, 59);
+
+  --border-style-search: #e8e8e8;
+
+  --background-color-button: #3bc;
+  --background-color-button-hover: rgb(43, 161, 177);
+  --background-color-copyright: #191919;
+  --background-color-danger: #d60f0f;
+  --background-color-danger-hover: #a01f1f;
+  --background-color-side-bar: rgba(250, 250, 250, 0.9);
+  --background-color-default: #f1f1f1;
+  --background-color-white: #ffffff;
+  --background-color-black: #191919;
+  --background-color-lilas: #474e72;
+
+  --icon-color-white: #ffffff;
+  --icon-color-black: #191919;
+  --icon-color-blue: #5AA4DB;
+
+  --button-ok: #b4b4b4;
+
+  --box-shadow: #26262650;
+
+  --alert-green-background: rgb(157, 235, 157);
+  --alert-red-background: rgb(235, 157, 157);
+  --alert-blue-background: rgb(157, 191, 235);
+
+  --alert-green-border: rgb(59, 175, 59);
+  --alert-red-border: rgb(175, 59, 59);
+  --alert-blue-border: rgb(59, 105, 175);
+
+  /* NOVO LAYOUT */
+  --background-login: #FBFCFF;
+  --background-filtro: #FBFCFF;
+  --background-selecao-img-perfil: #FBFCFF;
+  --background-color-input-login: #E8ECF3;
+  --background-color-input-paginas: #FFFFFF;
+  --background-color-botao-login: #1D4FD7;
+  --background-color-icone-message-duvida: #2A3465;
+  --background-color-icone-header: #DEE6FB;
+  --background-color-separacao-icones-header: #DFDFDF;
+  --background-color-alertas-header: #1D4FD7;
+  --background-color-sidebar: #091740;
+  --background-color-sidebar-menu: #00000080;
+  --background-color-menu-selecionado: #DEE6FB;
+  --background-color-menu-hover: #F0F4FD;
+  --background-color-separacao-fomulario-cadastro: #DFDFDF;
+  --background-color-selecao-icone-perfil: #1D4FD7;
+  --background-color-selecao-icone-perfil-sem-img: #67C1F920;
+  --background-color-selecao-icone-perfil-sem-img-hover: #67C1F9;
+  --background-color-loader: #ffffff;
+  --background-color-table-th: #F1F3F6;
+  --background-color-table-th-2: #f0f4fd;
+  --background-color-table-td: #DEE6FB;
+  --background-color-dropdown: #E8ECF3;
+  --background-color-dropdown-hover: #bebfc2;
+  --background-color-bloco-item-filtro: #E4E8F1;
+  --background-color-hr: #E0E4EA;
+  --background-color-editar-itens: #4F5C6E;
+  --background-color-icon-radio: #242B35;
+  --background-color-proximo-contratante: #1D4FD7;
+  --background-color-input-disabled: #F1F3F6;
+
+  --background-color-linha: #8292AA;
+
+  --overflow-filter-background-login: #2A3467;
+
+  --font-login: "Sofia Sans", sans-serif;
+  --font-sidebar-footer: "Sofia Sans", sans-serif;
+  --font-menu-opcao: "Sofia Sans", sans-serif;
+  --font-qtd-alertas-header: "Sofia Sans", sans-serif;
+  --font-titulo-atualizar-senha: "Roboto Slab", serif;
+  --font-sofia-sans: "Sofia Sans", sans-serif;
+  --font-roboto-slab: "Roboto Slab", serif;
+
+  --font-color-h1-titulo: #06102D;
+  --font-color-h6-titulo: #21272A;
+  --font-color-texto-parcelas: #21272A;
+  --font-color-texto-termos: #21272A;
+  --font-color-label: #000000;
+  --font-color-input: #000000;
+  --font-color-botao-ativo: #FBFCFF;
+  --font-color-alerta: #d60f0f;
+  --font-color-bloco-item-filtro: #4F5C6E;
+
+  --font-color-label-login: #21272A;
+  --font-color-input-login: #697077;
+  --font-color-input-link: #102C79;
+  --font-color-botao-login: #FBFCFF;
+  --font-color-erro-vermelho: rgb(175, 59, 59);
+  --font-color-titulo-atualizar-senha: #06102D;
+  --font-color-alertasheader: #ffffff;
+  --font-color-sidebar-footer: #FBFCFF;
+  --font-color-menu-opcao: #FBFCFF;
+  --font-color-menu-opcao-hover: #21272A;
+  --font-color-paginas: #000000;
+  --font-color-botao-azul: #1D4FD7;
+  --font-color-botao-verde: #2EC03D;
+  --font-color-botao-azul-hover: #FBFCFF;
+  --font-color-filtro: #262626;
+  --font-color-load-token: #091740;
+  --font-color-alerta-erro: #F00404;
+  --font-color-entre-em-contato: #242B35;
+  --font-color-informacao: #242B35;
+  --font-color-selection-option: #000000;
+  --font-color-alerta-previdencia: #F2536D;
+  --font-color-tabela-editar-item: #EEF2FE;
+  --font-color-inativo: #A8B3C4;
+  --font-color-menu-dropdow: #A8B3C4;
+
+  --icone-color-input-login: #697077;
+  --icone-color-perfil-header: #102C79;
+  --icone-color-mensagem-header: #102C79;
+  --icone-color-menu-opcao-hover: #102C79;
+
+  --border-color-message-duvida: #2A3465;
+  --border-color-botao-azul: #1D4FD7;
+  --border-color-message-duvida-hover: #67C1F9;
+  --border-color-header: #DFDFDF;
+  --border-color-menu-opcao: #FBFCFF;
+  --border-color-selecao-icone-perfil: #000000;
+  --border-color-input-login: #babcc0;
+  --border-color-input-paginas: #A8B3C4;
+  --border-color-dropdown: #A8B3C4;
+  --border-color-resumo-detalhe-analise: #C8CED9;
+  --border-color-alerta-erro: #F00404;
+  --border-color-alerta-previdencia: #F2536D;
+  --border-color-selecao-tipo: #242B35;
+
+  --box-shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+
+  --color-menu-hierarquia: #DFDFDF;
+
+  /* PROCESSOS RELATORIO */
+  --background-color-sem-inconsistencia: #EFFDF1;
+  --background-color-com-inconsistencia: #FEFBE9;
+  --background-color-erro-de-analise: #FEF1F0;
+
+  --font-color-sem-inconsistencia: #34C25C;
+  --font-color-com-inconsistencia: #F5A738;
+  --font-color-erro-de-analise: #F2536D;
+}
+
+/* APLICANDO CONFIGURACOES GLOBAIS PARA SEU PROJETO */
+html {
+  scroll-behavior: smooth;
+
+}
+
+html, body {
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+
+  height: 100%;
+
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+
+  position: relative;
+
+  /*background: var(--background-color-default);*/
+  background-color: var(--background-login);
+
+}
+
+/* REMOVE A BARRA DE BOLAGEM DO BODY */
+::-webkit-scrollbar {
+  display: none;
+
+}
+
+/* APLICANDO CONFIGURACOES GLOBAIS PARA O H1 */
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 44px !important;
+  font-weight: 800 !important;
+
+  color: var(--text-title);
+
+}
+
+a {
+  color: #3F648D;
+}
+
+a:focus {
+  outline: 0;
+}
+
+img {
+  max-width: 100%;
+  border: none;
+}
+
+p {
+  line-height: 1.7;
+}
+
+.clear {
+  clear: both;
+}
+
+hr {
+  height: 1px;
+  clear: both;
+  border: none;
+  line-height: 0;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+
+/***  HELPERS ***/
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table
+}
+
+.clearfix:after {
+  clear: both
+}
+
+.clearfix {
+  zoom: 1
+}
+
+.clear {
+  clear: both;
+}
+
+.opacity-low {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+.font-small {
+  font-size: 90% !important;
+}
+
+.font-large {
+  font-size: 200% !important;
+}
+
+.h1, h1 {
+  font-size: 36px;
+}
+.h1, .h2, .h3, h1, h2, h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+h1 {
+  margin: .67em 0;
+  font-size: 2em;
+}
+
+.divisor-blocos {
+  margin: 1% 0%;
+
+  width: 100%;
+  height: 0px;
+
+  border-top: 0px solid transparent;
+  border-left: 0px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 1px solid #eae9e9;
+
+}
+
+input {
+  color: var(--font-color-input);
+
+}
+
+table tbody tr:hover {
+  background-color: var(--background-color-table-hover);
+
+}

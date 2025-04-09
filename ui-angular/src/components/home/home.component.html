@@ -1,3 +1,182 @@
-<div>
-    <h1>Welcome</h1>
-</div>
+<section>
+  <h1>Desario Prova Tokio</h1>
+
+  <h6>Dados do Estipulante</h6>
+
+  <div class="conjunto">
+    <div class="bloco-input">
+      <label>Utilizar um usuarios existente ?</label>
+      <div class="radio">
+        <div class="opcao" *ngFor='let item of this.clientExistente' >
+
+          <input type="radio" [checked]="item.checked" (change)="this.handleClientExistente(item.id)" />
+
+          <div *ngIf='item.checked' class="img">
+            <img src="assets/img/icon/checkbox_true.svg" alt="Sim" />
+          </div>
+          <div *ngIf='!item.checked' class="img">
+            <img src="assets/img/icon/checkbox_false.svg" alt="Não" />
+          </div>
+
+          <div class="divisor"></div>
+
+          <span>{{item.span}}</span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divisor-blocos"></div>
+
+  <div *ngIf='!this.isClientExistente' class="conjunto">
+    <div class="bloco-input reduzido">
+      <label for="first_name">First Name</label>
+      <div class="input">
+        <input type="text"
+        [style]="this.client.first_name == '' ? 'color: var(--font-color-input);' : 'color: var(--font-color-informacao);'"
+        [(ngModel)]="this.client.first_name" name="first_name" id="first_name" placeholder="Digite" />
+        <div class="obrigatorio">
+          <img src="assets/img/icon/obrigatorio.svg" alt="Campo Obrigatorio" />
+        </div>
+      </div>
+    </div>
+
+    <div class="divisor"></div>
+
+    <div class="bloco-input reduzido">
+      <label for="last_name">Last Name</label>
+      <div class="input">
+        <input type="text"
+        [style]="this.client.last_name == '' ? 'color: var(--font-color-input);' : 'color: var(--font-color-informacao);'"
+        [(ngModel)]="this.client.last_name" name="last_name" id="last_name" placeholder="Digite" />
+      </div>
+    </div>
+
+    <div class="divisor"></div>
+
+    <div class="bloco-input reduzido">
+      <label for="email">E-mail</label>
+      <div class="input">
+        <input type="email"
+        [style]="this.client.email == '' ? 'color: var(--font-color-input);' : 'color: var(--font-color-informacao);'"
+        [(ngModel)]="this.client.email" name="email" id="email" placeholder="Digite" />
+        <div class="obrigatorio">
+          <img src="assets/img/icon/obrigatorio.svg" alt="Campo Obrigatorio" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf='this.isClientExistente' class="conjunto">
+    <div class="bloco-input enredeco">
+      <label for="cidade">Client</label>
+      <div class="input">
+        <select id="cidade" name="cidade"
+          style="background: url(assets/img/icon/option.svg) no-repeat right 0px center;"
+          (change)="this.handleClient($event)"
+        >
+          <option value="">Selecione</option>
+          <option *ngFor='let item of this.listaClient' [value]="item.id">ID: [{{item.id}}] | {{item.first_name}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="divisor"></div>
+
+    <div class="bloco-input reduzido"></div>
+
+    <div class="divisor"></div>
+
+    <div class="bloco-input reduzido"></div>
+  </div>
+
+  <div class="divisor-blocos"></div>
+
+  <div class="conjunto">
+    <div class="bloco-input reduzido">
+      <label for="postal_code">Postal code</label>
+      <div class="input">
+        <input type="text"
+        [style]="this.address.postal_code == '' ? 'color: var(--font-color-input);' : 'color: var(--font-color-informacao);'"
+        [(ngModel)]="this.address.postal_code" name="postal_code" id="postal_code" placeholder="Digite" (change)="this.handleCEP($event)" />
+      </div>
+    </div>
+
+    <div class="divisor"></div>
+
+    <div class="bloco-input reduzido">
+      <label for="address">Address</label>
+      <div class="input">
+        <input type="text"
+        [style]="this.address.address == '' ? 'color: var(--font-color-input);' : 'color: var(--font-color-informacao);'"
+        [(ngModel)]="this.address.address" name="address" id="address" placeholder="Digite" />
+        <div class="obrigatorio">
+          <img src="assets/img/icon/obrigatorio.svg" alt="Campo Obrigatorio" />
+        </div>
+      </div>
+    </div>
+
+    <div class="divisor"></div>
+
+    <div class="bloco-input reduzido">
+      <label for="number">Number</label>
+      <div class="input">
+        <input type="number"
+        [style]="this.address.number == '' ? 'color: var(--font-color-input);' : 'color: var(--font-color-informacao);'"
+        [(ngModel)]="this.address.number" name="number" id="number" placeholder="Digite" />
+        <div class="obrigatorio">
+          <img src="assets/img/icon/obrigatorio.svg" alt="Campo Obrigatorio" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="conjunto">
+    <div class="bloco-input reduzido">
+      <label for="complement">Complement</label>
+      <div class="input">
+        <input type="text"
+        [style]="this.address.complement == '' ? 'color: var(--font-color-input);' : 'color: var(--font-color-informacao);'"
+        [(ngModel)]="this.address.complement" name="complement" id="complement" placeholder="Digite" />
+      </div>
+    </div>
+
+    <div class="divisor"></div>
+
+    <div class="bloco-input reduzido">
+      <label for="city">City</label>
+      <div class="input">
+        <input type="text"
+        [style]="this.address.city == '' ? 'color: var(--font-color-input);' : 'color: var(--font-color-informacao);'"
+        [(ngModel)]="this.address.city" name="city" id="city" placeholder="Digite" />
+      </div>
+    </div>
+
+    <div class="divisor"></div>
+
+    <div class="bloco-input reduzido">
+      <label for="state">State</label>
+      <div class="input">
+        <input type="text"
+        [style]="this.address.state == '' ? 'color: var(--font-color-input);' : 'color: var(--font-color-informacao);'"
+        [(ngModel)]="this.address.state" name="state" id="state" placeholder="Digite" />
+      </div>
+    </div>
+  </div>
+
+  <div class="divisor-blocos"></div>
+
+  <lista-addresses [listaAddresses]="this.listaAddresses" (enviaAddresses)="this.capituraAddresses($event)" ></lista-addresses>
+
+  <div class="botoes" >
+    <div class="bloco" style="margin-top: 16px; margin-bottom: 10px;"
+    (click)="this.enviaDados()" >
+    <div class="img">
+      <img src="assets/img/icon/adicionar.svg" alt="adicionar" />
+    </div>
+    <div class="divisor"></div>
+    <span>{{this.isEditarAddresses ? 'Atualizar' : 'Adicionar'}}</span>
+  </div>
+  </div>
+</section>

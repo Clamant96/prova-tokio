@@ -33,7 +33,7 @@ public class AddressesService {
 	@Autowired
 	private CepComponent cepProperties;
 	
-	public ResponseEntity<AddressesDTO> buscaCEP(String cep) {
+	public AddressesDTO buscaCEP(String cep) {
 
 		try {
 			
@@ -58,16 +58,16 @@ public class AddressesService {
 				// DESERIALIZA
 				AddressesDTO resp = new Gson().fromJson(responseEntity.getBody().toString(), AddressesDTO.class);
 				
-				return ResponseEntity.status(HttpStatus.OK).body(resp);
+				return resp;
 			} else {
 				// ITEM NAO LOCALIZADO
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+				return null;
 			}
 
 		}
 		catch (Exception e) {
 			// ERRO NA BUSCA OU DESERIALIZA DO OBJ
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+			return null;
 		}
 	}
 	
@@ -78,7 +78,7 @@ public class AddressesService {
 			addressesDTO.getComplemento(),
 			addressesDTO.getCep(),
 			addressesDTO.getLocalidade(),
-			addressesDTO.getUf(),
+			addressesDTO.getEstado(),
 			"Brasil"
 		);
 	}
@@ -98,28 +98,30 @@ public class AddressesService {
 	
 	public ResponseEntity<Addresses> cadastrarAddress(Addresses addresses) {
 		try { // CADASTRA O ITEM NO BANCO
-
-			if(Optional.ofNullable(addresses.getClient().getId()).orElse((long) 0) == 0) {
-				Client clientCadastrado = clientRepository.save(addresses.getClient());
-				
-				if(clientCadastrado.getId() > 0) {
-					addresses.setClient(clientCadastrado);
+			
+			if(Optional.ofNullable(addresses.getClient()).orElse(null) != null) {
+				if(Optional.ofNullable(addresses.getClient().getId()).orElse((long) 0) == 0) {
+					Client clientCadastrado = clientRepository.save(addresses.getClient());
+					
+					if(clientCadastrado.getId() > 0) {
+						addresses.setClient(clientCadastrado);
+					}else {
+						addresses.setClient(null);
+					}
+					
 				}else {
-					addresses.setClient(null);
-				}
-				
-			}else {
-				Optional<Client> clientExistente = clientRepository.findById(Optional.ofNullable(addresses.getClient().getId()).orElse((long) 0));
-				
-				if(clientExistente.isPresent()) {
-					clientExistente.get().setFirst_name(Optional.ofNullable(addresses.getClient().getFirst_name()).orElse(null));
-					clientExistente.get().setLast_name(Optional.ofNullable(addresses.getClient().getLast_name()).orElse(null));
-					clientExistente.get().setEmail(Optional.ofNullable(addresses.getClient().getEmail()).orElse(null));
+					Optional<Client> clientExistente = clientRepository.findById(Optional.ofNullable(addresses.getClient().getId()).orElse((long) 0));
 					
-					Client client = clientRepository.save(clientExistente.get());
-					
-					addresses.setClient(client);
-					
+					if(clientExistente.isPresent()) {
+						clientExistente.get().setFirst_name(Optional.ofNullable(addresses.getClient().getFirst_name()).orElse(null));
+						clientExistente.get().setLast_name(Optional.ofNullable(addresses.getClient().getLast_name()).orElse(null));
+						clientExistente.get().setEmail(Optional.ofNullable(addresses.getClient().getEmail()).orElse(null));
+						
+						Client client = clientRepository.save(clientExistente.get());
+						
+						addresses.setClient(client);
+						
+					}
 				}
 			}
 			

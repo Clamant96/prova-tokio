@@ -36,12 +36,12 @@ public class ClientController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Client> postAddresses(@RequestBody Client client) {
+	public ResponseEntity<Client> postClient(@RequestBody Client client) {
 		return clientService.cadastrarClient(client);
 	}
 	
 	@PutMapping
-	public ResponseEntity<Client> putAddresses(@RequestBody Client client) {
+	public ResponseEntity<Client> putClient(@RequestBody Client client) {
 		return clientService.atualizarClient(client);
 	}
 	

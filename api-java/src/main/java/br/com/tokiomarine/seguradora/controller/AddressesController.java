@@ -37,8 +37,11 @@ public class AddressesController {
 	}
 	
 	@GetMapping("/buscar/{cep}")
-	public ResponseEntity<AddressesDTO> getByCep(@PathVariable("cep") String cep) {
-		return addressesService.buscaCEP(cep);
+	public ResponseEntity<Addresses> getByCep(@PathVariable("cep") String cep) {
+		
+		Addresses addresses = addressesService.populaAddresses(addressesService.buscaCEP(cep));
+		
+		return ResponseEntity.ok(addresses);
 	}
 	
 	@PostMapping

@@ -1,0 +1,66 @@
+<section>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <div class="conjunto">
+            ID
+          </div>
+        </th>
+        <th>
+          <div class="conjunto">
+            Client
+          </div>
+        </th>
+        <th>
+          <div class="conjunto">
+            Address
+          </div>
+        </th>
+        <th>
+          <div class="conjunto">
+            Number
+          </div>
+        </th>
+        <th>
+          <div class="conjunto">
+            Complement
+          </div>
+        </th>
+        <th>
+          <div class="conjunto">
+            Postal code
+          </div>
+        </th>
+        <th>
+          <div class="conjunto">
+            City
+          </div>
+        </th>
+        <th>
+          <div class="conjunto">
+            State
+          </div>
+        </th>
+        <th>
+          <div class="conjunto">
+            Country
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let item of this.listaItems' (click)="this.eviaAtualizacaoDeAddresses(item)" >
+        <td>{{item?.id || '-'}}</td>
+        <td>{{item?.client?.first_name || '-'}}</td>
+        <td>{{item?.address}}</td>
+        <td>{{item?.number || '-'}}</td>
+        <td>{{item?.complement || '-'}}</td>
+        <td>{{item?.postal_code || '-'}}</td>
+        <td>{{item?.city || '-'}}</td>
+        <td>{{item?.state || '-'}}</td>
+        <td>{{item?.country || '-'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,110 @@
+section {
+  width: 100%;
+  height: auto;
+}
+
+section table {
+  width: 100%;
+  height: auto;
+
+}
+
+section table thead {
+  width: 100%;
+  height: auto;
+
+}
+
+section table thead tr th {
+  width: auto;
+  height: auto;
+
+}
+
+section table thead tr .th-icone {
+  width: auto;
+  height: auto;
+
+  padding: 0 !important;
+
+}
+
+section table thead tr .th-icone .icone {
+  /*padding: 25%;*/
+  padding: 10%;
+
+  /*width: 50%;*/
+  width: auto;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+section table thead tr th .icone img {
+  /*width: 24px;*/
+  width: 18px;
+  height: auto;
+
+}
+
+section table tbody {
+  width: 100%;
+  height: auto;
+
+}
+
+section table tbody tr {
+  font-family: var(--font-sofia-sans);
+  font-size: 16px;
+  font-weight: 500;
+
+  text-align: center;
+
+  cursor: pointer;
+
+}
+
+section table tbody .tr-contratante {
+  background-color: transparent;
+
+  border-bottom: 1px solid var(--border-color-resumo-detalhe-analise);
+
+}
+
+section table tbody tr td {
+  width: auto;
+  height: auto;
+
+  padding: 10px;
+
+}
+
+section table tbody tr td .status {
+  width: 48px;
+  height: 29px;
+
+  gap: 4px;
+
+  border-radius: 3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+section table tbody tr td .status span {
+  width: 32px;
+  height: 21px;
+
+  font-family: var(--font-sofia-sans);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  text-align: center;
+
+}
