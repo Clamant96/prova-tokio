@@ -1,5 +1,10 @@
 # PROVA TESTE
 
+## DESENVOLVEDOR
+Nome: Kevin Alec Neri Lazzarotto
+GitHub: https://github.com/Clamant96
+Youtube: https://www.youtube.com/@helpconnect4653
+
 ## BACK E FRONT
 Back e front estao integrados, para realizar o teste, basta rodas a aplicacao Java e acessar a seguinte URL, que vc tera acesso ao front
 ```bash
