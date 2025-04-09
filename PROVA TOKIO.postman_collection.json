@@ -1,0 +1,308 @@
+{
+	"info": {
+		"_postman_id": "d5426964-06e0-405c-861f-8af973d59167",
+		"name": "PROVA TOKIO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24820842"
+	},
+	"item": [
+		{
+			"name": "ADDRESS",
+			"item": [
+				{
+					"name": "[GET] /addresses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_url}}/addresses",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] /addresses/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_url}}/addresses/:id",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"addresses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] /addresses/buscar/:cep",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_url}}/addresses/buscar/:cep",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"addresses",
+								"buscar",
+								":cep"
+							],
+							"variable": [
+								{
+									"key": "cep",
+									"value": "05345000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[POST] /addresses",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client\": {\r\n        \"id\": 1,\r\n        \"first_name\": \"Kevin atualizado\",\r\n        \"last_name\": \"Neri teste\",\r\n        \"email\": \"neri.kevin96@gmail.com\"\r\n    },\r\n\t\"address\": \"Praça da Sé\",\r\n\t\"number\": \"0\",\r\n\t\"complement\": \"\",\r\n\t\"postal_code\": \"05345-000\",\r\n\t\"city\": \"São Paulo\",\r\n\t\"state\": \"São Paulo\",\r\n\t\"country\": \"Brasil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_url}}/addresses",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PUT] /addresses",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"client\": {\r\n        \"id\": 1,\r\n        \"first_name\": \"Kevin atualizado\",\r\n        \"last_name\": \"Neri atualiza\",\r\n        \"email\": \"neri.kevin96@gmail.com\"\r\n    },\r\n    \"address\": \"Praça da Sé atualizado\",\r\n    \"number\": 0.0,\r\n    \"complement\": \"\",\r\n    \"postal_code\": \"05345-000\",\r\n    \"city\": \"São Paulo\",\r\n    \"state\": \"São Paulo\",\r\n    \"country\": \"Brasil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_url}}/addresses",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"addresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[DELETE] /addresses/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server_url}}/addresses/:id",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"addresses",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CLIENT",
+			"item": [
+				{
+					"name": "[GET] /clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_url}}/clients",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] /clients/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server_url}}/clients/:id",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"clients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[POST] /clients",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Kevin\",\r\n    \"last_name\": \"Neri\",\r\n    \"email\": \"neri.kevin96@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_url}}/clients",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PUT] /clients",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"first_name\": \"Kevin atualizado\",\r\n    \"last_name\": \"Neri atualiza\",\r\n    \"email\": \"neri.kevin96@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_url}}/clients",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[DELETE] /clients/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server_url}}/clients/:id",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"clients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server_url",
+			"value": "http://localhost:8080/",
+			"type": "string"
+		}
+	]
+}
