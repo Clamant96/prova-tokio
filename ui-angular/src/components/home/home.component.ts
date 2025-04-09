@@ -157,7 +157,10 @@ export class HomeComponent implements OnInit {
 
   capituraAddresses(event: any) {
     this.address = event;
-    this.client = event.client;
+
+    if(event.client) {
+      this.client = event.client;
+    }
 
     this.isEditarAddresses = true;
 

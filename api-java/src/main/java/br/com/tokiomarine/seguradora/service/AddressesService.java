@@ -134,23 +134,40 @@ public class AddressesService {
 	
 	public ResponseEntity<Addresses> atualizarAddress(Addresses addresses) {
 		try {
-			Optional<Client> clientExistente = clientRepository.findById(Optional.ofNullable(addresses.getClient().getId()).orElse((long) 0));
 			
-			if(clientExistente.isPresent()) { // ATUALIZA O USUARIO
-				clientExistente.get().setFirst_name(Optional.ofNullable(addresses.getClient().getFirst_name()).orElse(null));
-				clientExistente.get().setLast_name(Optional.ofNullable(addresses.getClient().getLast_name()).orElse(null));
-				clientExistente.get().setEmail(Optional.ofNullable(addresses.getClient().getEmail()).orElse(null));
+			if(Optional.ofNullable(addresses.getClient()).orElse(null) != null) {
+				if(Optional.ofNullable(addresses.getClient().getId()).orElse((long) 0) == 0) {
+					Client clientCadastrado = clientRepository.save(addresses.getClient());
+					
+					if(clientCadastrado.getId() > 0) {
+						addresses.setClient(clientCadastrado);
+					}else {
+						addresses.setClient(null);
+					}
+				}else {
+					Optional<Client> clientExistente = clientRepository.findById(Optional.ofNullable(addresses.getClient().getId()).orElse((long) 0));
+					
+					if(clientExistente.isPresent()) { // ATUALIZA O USUARIO
+						clientExistente.get().setFirst_name(Optional.ofNullable(addresses.getClient().getFirst_name()).orElse(null));
+						clientExistente.get().setLast_name(Optional.ofNullable(addresses.getClient().getLast_name()).orElse(null));
+						clientExistente.get().setEmail(Optional.ofNullable(addresses.getClient().getEmail()).orElse(null));
+					}
+					
+					// BUSCA O ADDRESS POR ID PARA ATUALIZA-LO
+					Optional<Addresses> addressesExistente = addressesRepository.findById(Optional.ofNullable(addresses.getId()).orElse((long) 0));
+					
+					if(addressesExistente.isPresent()) { // CASO LOCALIZE ATUALIZA O DADO
+						return ResponseEntity.status(HttpStatus.OK).body(addressesRepository.save(addresses));
+					}else { // CASO NAO LOCALIZE RETORNA ITEM NAO LOCALIZADO
+						return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+					}
+				}
 			}
 			
-			// BUSCA O ADDRESS POR ID PARA ATUALIZA-LO
-			Optional<Addresses> addressesExistente = addressesRepository.findById(Optional.ofNullable(addresses.getId()).orElse((long) 0));
+			return ResponseEntity.status(HttpStatus.OK).body(addressesRepository.save(addresses));
 			
-			if(addressesExistente.isPresent()) { // CASO LOCALIZE ATUALIZA O DADO
-				return ResponseEntity.status(HttpStatus.OK).body(addressesRepository.save(addresses));
-			}else { // CASO NAO LOCALIZE RETORNA ITEM NAO LOCALIZADO
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-			}
 		} catch (Exception e) { // CASO DE ERRO NA CONSULTA RETORNA ERRO
+			System.out.println("ERRO: "+ e.toString());
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
 	}
