@@ -66,3 +66,5 @@ Criar uma interface consumindo os serviços desenvolvidos utilizando uma das tec
 2. Vue
 3. Thymeleaf
 
+## Render da Aplicacao Rodando
+![Render Aplicacao](render_aplicacao.png)
